@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="com.mendix.widget.web.layoutgrid.LayoutGridRow" pluginWidget="true" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../../../../node_modules/mendix/custom_widget.xsd">
+    <name>LayoutGridRow</name>
+    <description />
+    <studioProCategory>Containers</studioProCategory>
+    <studioCategory>Containers</studioCategory>
+    <helpUrl>https://docs.mendix.com/appstore/widgets/LayoutGrid</helpUrl>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="horizontalAlignment" type="enumeration" defaultValue="none">
+                <caption>Align Columns Horizontally</caption>
+                <description />
+                <enumerationValues>
+                    <enumerationValue key="none">Not set</enumerationValue>
+                    <enumerationValue key="start">Left</enumerationValue>
+                    <enumerationValue key="center">Center</enumerationValue>
+                    <enumerationValue key="end">Right</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="verticalAlignment" type="enumeration" defaultValue="none">
+                <caption>Align Columns Vertically</caption>
+                <description />
+                <enumerationValues>
+                    <enumerationValue key="none">Not set</enumerationValue>
+                    <enumerationValue key="start">Top</enumerationValue>
+                    <enumerationValue key="center">Center</enumerationValue>
+                    <enumerationValue key="end">Bottom</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="content" type="widgets">
+                <caption>Content</caption>
+                <description />
+            </property>
+            <property key="spacingBetweenColumns" type="boolean" defaultValue="true">
+                <caption>spacing Between Columns</caption>
+                <description />
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Visibility">
+            <systemProperty key="Visibility" />
+        </propertyGroup>
+        <propertyGroup caption="Common">
+            <systemProperty key="Name" />
+            <systemProperty key="TabIndex" />
+        </propertyGroup>
+    </properties>
+</widget>

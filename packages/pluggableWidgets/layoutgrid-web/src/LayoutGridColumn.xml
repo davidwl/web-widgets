@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="com.mendix.widget.web.layoutgrid.LayoutGridColumn" pluginWidget="true" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../../../../node_modules/mendix/custom_widget.xsd">
+    <name>LayoutGridColumn</name>
+    <description />
+    <studioProCategory>Containers</studioProCategory>
+    <studioCategory>Containers</studioCategory>
+    <helpUrl>https://docs.mendix.com/appstore/widgets/LayoutGrid</helpUrl>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="weight" type="integer" defaultValue="0">
+                <caption>Weight</caption>
+                <description />
+            </property>
+            <property key="tabletWeight" type="integer" defaultValue="0">
+                <caption>Tablet Weight</caption>
+                <description />
+            </property>
+            <property key="phoneWeight" type="integer" defaultValue="0">
+                <caption>Phone Weight</caption>
+                <description />
+            </property>
+            <property key="previewWidth" type="integer" defaultValue="0">
+                <caption>Previw Weight</caption>
+                <description />
+            </property>
+            <property key="verticalAlignment" type="enumeration" defaultValue="none">
+                <caption>Align Vertically</caption>
+                <description />
+                <enumerationValues>
+                    <enumerationValue key="none">None</enumerationValue>
+                    <enumerationValue key="start">Top</enumerationValue>
+                    <enumerationValue key="center">Center</enumerationValue>
+                    <enumerationValue key="end">Bottom</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="content" type="widgets">
+                <caption>Content</caption>
+                <description />
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Visibility">
+            <systemProperty key="Visibility" />
+        </propertyGroup>
+        <propertyGroup caption="Common">
+            <systemProperty key="Name" />
+            <systemProperty key="TabIndex" />
+        </propertyGroup>
+    </properties>
+</widget>

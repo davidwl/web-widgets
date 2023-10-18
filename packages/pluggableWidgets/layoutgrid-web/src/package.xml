@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns="http://www.mendix.com/package/1.0/">
+    <clientModule name="LayoutGrid" version="3.2.0" xmlns="http://www.mendix.com/clientModule/1.0/">
+        <widgetFiles>
+            <widgetFile path="LayoutGrid.xml" />
+            <widgetFile path="LayoutGridRow.xml" />
+            <widgetFile path="LayoutGridColumn.xml" />
+        </widgetFiles>
+        <files>
+            <file path="dev/nm/widget/web/layoutgrid/" />
+            <file path="dev/nm/widget/web/layoutgridrow/" />
+            <!-- <file path="dev/nm/widget/web/layoutgridcolumn/" /> -->
+        </files>
+    </clientModule>
+</package>

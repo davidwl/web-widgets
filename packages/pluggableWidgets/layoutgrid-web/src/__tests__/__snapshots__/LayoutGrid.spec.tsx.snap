@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+
+exports[`LayoutGrid renders children 1`] = `
+<div
+  className="className mx-layoutgrid"
+  style={{}}
+  tabIndex={0}
+>
+  <div />
+</div>
+`;
