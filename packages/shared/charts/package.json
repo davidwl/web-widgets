@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@mendix/eslint-config-web-widgets": "workspace:*",
-    "@mendix/pluggable-widgets-tools": "^9.24.1",
+    "@mendix/pluggable-widgets-tools": "^10.0.1",
     "@mendix/prettier-config-web-widgets": "workspace:*",
     "@mendix/widget-plugin-component-kit": "workspace:*",
     "@mendix/widget-plugin-hooks": "workspace:*",
@@ -37,7 +37,7 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "ace-builds": "^1.28.0",
+    "ace-builds": "^1.30.0",
     "classnames": "^2.3.2",
     "deepmerge": "^4.3.1",
     "fast-json-patch": "^3.1.1",

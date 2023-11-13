@@ -14,6 +14,7 @@ import { UpdateDataSourceFn, useDG2ExportApi } from "./features/export";
 import { extractFilters } from "./features/filters";
 import { Column } from "./helpers/Column";
 import "./ui/Datagrid.scss";
+import { useColumnsState } from "./features/use-columns-state";
 
 export default function Datagrid(props: DatagridContainerProps): ReactElement {
     const id = useRef(`DataGrid${generateUUID()}`);
@@ -28,8 +29,15 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
     const multipleFilteringState = useMultipleFiltering();
     const { FilterContext } = useFilterContext();
 
-    const { items } = useDG2ExportApi({
-        columns: props.columns,
+    const columns = useMemo(
+        () => props.columns.map((col, index) => new Column(col, index, id.current)),
+        [props.columns]
+    );
+
+    const [columnsState, { setHidden, setOrder }] = useColumnsState(columns);
+
+    const [{ items, exporting, processedRows }, { abort }] = useDG2ExportApi({
+        columns: columnsState.columnsVisible.map(column => props.columns[column.columnNumber]),
         hasMoreItems: props.datasource.hasMoreItems || false,
         items: props.datasource.items,
         name: props.name,
@@ -117,11 +125,6 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
         props.datasource.setSortOrder(undefined);
     }
 
-    const columns = useMemo(
-        () => props.columns.map((col, index) => new Column(col, index, id.current)),
-        [props.columns]
-    );
-
     const selectionHelper = useSelectionHelper(props.itemSelection, props.datasource, props.onSelectionChange);
     const selectionContextValue = useCreateSelectionContextValue(selectionHelper);
     const selectionProps = useGridSelectionProps({
@@ -134,8 +137,8 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
     return (
         <Widget
             className={props.class}
-            columns={columns}
             CellComponent={Cell}
+            columnsState={columnsState}
             columnsDraggable={props.columnsDraggable}
             columnsFilterable={props.columnsFilterable}
             columnsHidable={props.columnsHidable}
@@ -196,6 +199,7 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
             headerWrapperRenderer={useCallback((_columnIndex: number, header: ReactElement) => header, [])}
             id={id.current}
             numberOfItems={props.datasource.totalCount}
+            onExportCancel={abort}
             page={currentPage}
             pageSize={props.pageSize}
             paging={props.pagination === "buttons"}
@@ -203,6 +207,8 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
             rowClass={useCallback((value: any) => props.rowClass?.get(value)?.value ?? "", [props.rowClass])}
             setPage={setPage}
             setSortParameters={setSortParameters}
+            setOrder={setOrder}
+            setHidden={setHidden}
             settings={props.configurationAttribute}
             styles={props.style}
             valueForSort={useCallback(
@@ -215,6 +221,10 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
             rowAction={props.onClick}
             selectionProps={selectionProps}
             selectionStatus={selectionHelper?.type === "Multi" ? selectionHelper.selectionStatus : "unknown"}
+            exporting={exporting}
+            processedRows={processedRows}
+            exportDialogLabel={props.exportDialogLabel?.value}
+            cancelExportLabel={props.cancelExportLabel?.value}
         />
     );
 }
